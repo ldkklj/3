@@ -29,7 +29,7 @@ def main():
     print(df.shape[0])
     df['Time']=pd.to_datetime(df['Time'],unit='ms')+pd.Timedelta('8 h')
     #df.plot(x='Time',y='Close')  dd   vvv
-    #plt.show()vvvv
+    #plt.show()vvvvbbbb
     dfbolling = dataAnalyse(df)
     add_plot = [mpf.make_addplot(dfbolling["BBANDS_upper"], color='y'),mpf.make_addplot(dfbolling["BBANDS_middle"], color='r'),mpf.make_addplot(dfbolling["BBANDS_lower"], color='b')]
     plotKLine(df,add_plot)
