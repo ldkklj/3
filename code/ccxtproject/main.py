@@ -1,17 +1,10 @@
-'''backtest
-start: 2020-06-30 21:30:00
-end: 2020-06-30 22:22:00
-period: 5s
-basePeriod: 5s
-exchanges: [{"eid":"Binance","currency":"ETH_USDT"}]
-'''
-from fmz import *
-task = VCtx(__doc__) # initialize backtest engine from __doc__
-#需要用的pandas库，并且用自己的托管回测才能保存到本地
+
+import ccxt
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
 
 # from drawpic import *
 # from analyse import *
@@ -35,10 +28,10 @@ def main():
         #      df.to_csv(path+'records14.csv',index=False)
         #      break
         #休眠时间是选择周期
-        Sleep(190*60*1000)
+        time.sleep(1)
 try:
     main()
 except Exception as e:
     print(e)
-    records=task.Join()
+
 

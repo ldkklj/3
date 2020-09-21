@@ -22,7 +22,7 @@ path = 'C:\\'
 def main():
     df=pd.DataFrame()
    # while True:
-    records = _C(exchange.GetRecords)
+    records = _C(exchange.GetRecords,PERIOD_D1)
 
     account = _C(exchange.GetAccount)
     df = pd.DataFrame(records)  #      
