@@ -1,6 +1,6 @@
 #import ccxtpro
 import ccxt
-#mport queue
+import queue
 import pandas as pd
 import time
 
@@ -32,9 +32,7 @@ biance.options['defaultType']='future'
 biance.load_markets()
 tradepairs=biance.markets   #获取所有合约的交易对
 
-
-
-
+preTradeQueue = queue.Queue(5)
 
 class Vividict(dict):
     def __missing__(self, key):
@@ -87,6 +85,12 @@ def analyse(): #进行分析，给出买卖提示
             dPrice2 = records[key]['data'][-6]['price']-tempkeymin['price']-midPrice*0.005
             dPrice3 = records[key]['data'][-11]['price']-tempkeymin['price']-midPrice*0.005
             if dPrice1>0 and dPrice2 >0 and dPrice3 >0 :
+                preOrder={}
+                preOrder['side']='buy'
+                preOrder['price']=dPrice1*1.0005
+                preOrder['symbol']= key
+
+
 
 
 
